@@ -1,5 +1,6 @@
 package SudokuLogic;
 
+import Database.LeaderboardManager;
 import SudokuLogic.Difficulty.DemoDifficulty;
 import SudokuLogic.Difficulty.IGameDifficulty;
 
@@ -9,6 +10,8 @@ public class SudokuGame {
     public SudokuGame(IGameDifficulty difficulty) {
         this.difficulty = difficulty;
     }
+
+    GameStatistics statistics;
 
     IGameDifficulty difficulty;
     SudokuBoard board;
@@ -20,12 +23,24 @@ public class SudokuGame {
     public void startNewGame() {
         board = new BoardGenerator().generateFullTable();
         new BoardGapGenerator().generateGaps(board, difficulty);
+
+        statistics = new GameStatistics(difficulty);
+        statistics.startTimer();
     }
 
-    public boolean validateWinCondition() {
+    public boolean validateWinCondition(String playerName) {
         var result = board.isCorrectlyFilled();
-        if(result)
+        if(result) {
             board.lockBoard();
+            statistics.stopTimer();
+            statistics.setPlayerName(playerName);
+        }
+
         return result;
+    }
+
+    public void saveScoreToDb() {
+        LeaderboardManager man = new LeaderboardManager();
+        man.saveScoreToDb(statistics);
     }
 }

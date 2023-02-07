@@ -3,18 +3,40 @@ package Database;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Initiator {
 
-    public static void createNewDatabase(String fileName) throws IOException {
+    public final static String DatabaseName = "database.db";
+    public static void createNewDatabase() throws IOException {
+        InitDatabaseFile();
+        InitDatabaseStructure();
+    }
 
-        Files.createDirectories(Paths.get("C:/sqlite/db.db"));
+    private static void InitDatabaseStructure() {
+        String url = "jdbc:sqlite:C://sqlite/db/" + DatabaseName;
+        String sql = "CREATE TABLE IF NOT EXISTS leaderboards (\n"
+                + "	id integer PRIMARY KEY,\n"
+                + "	playerName text NOT NULL,\n"
+                + "	difficultyName text NOT NULL,\n"
+                + "	date text NOT NULL,\n"
+                + "	timeTaken INTEGER NOT NULL\n"
+                + ");";
 
-        String url = "jdbc:sqlite:C:/sqlite/db/" + fileName;
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement())
+        {
+            stmt.execute(sql);
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void InitDatabaseFile() throws IOException {
+        Files.createDirectories(Paths.get("C:/sqlite/db"));
+
+        String url = "jdbc:sqlite:C:/sqlite/db/" + DatabaseName;
 
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {

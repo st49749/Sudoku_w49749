@@ -49,11 +49,12 @@ public class MainWindow extends JFrame {
     }
 
     private void validateWinCondition() {
-        var playerWon = game.validateWinCondition();
+        var playerWon = game.validateWinCondition(gracz1TextField.getText());
         System.out.println(playerWon);
         if(playerWon) {
             lockAllGridFields();
             JOptionPane.showMessageDialog(null,"Gratulacje!");
+            game.saveScoreToDb();
         }
     }
 
