@@ -6,4 +6,9 @@ public class EasyDifficulty implements IGameDifficulty {
     public int getNumberOfGaps() {
         return 20;
     }
+
+    @Override
+    public String getName() {
+        return "Łatwy";
+    }
 }

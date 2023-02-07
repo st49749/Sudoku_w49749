@@ -4,6 +4,11 @@ public class DemoDifficulty implements IGameDifficulty {
 
     @Override
     public int getNumberOfGaps() {
-        return 3;
+        return 2;
+    }
+
+    @Override
+    public String getName() {
+        return "Demo";
     }
 }

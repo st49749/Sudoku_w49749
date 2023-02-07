@@ -6,4 +6,10 @@ public class HardDifficulty implements IGameDifficulty {
     public int getNumberOfGaps() {
         return 40;
     }
+
+    @Override
+    public String getName() {
+        return "Trudny";
+    }
+
 }

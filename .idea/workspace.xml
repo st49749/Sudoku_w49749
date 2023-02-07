@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ffffa3-3e13-4c7d-9953-ab13fa95965a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/BoardGapGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/DemoDifficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/EasyDifficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/HardDifficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/IGameDifficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utilities/RandomGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/Initiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Initiator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/DemoDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/DemoDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/EasyDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/EasyDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/HardDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/HardDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/IGameDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/IGameDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/SudokuCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,23 +105,24 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Utilities/RandomGenerator.java</url>
           <line>5</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java</url>
-          <line>17</line>
-          <properties class="SudokuLogic.BoardGenerator" method="fillDiagonal">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UI/MainWindow.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UI/MainWindow.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UI/MainWindow.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

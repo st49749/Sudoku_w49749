@@ -4,14 +4,14 @@ public class SudokuCell {
     Integer value = null;
     boolean isEnabled = true;
     public boolean isEmpty() {
-        return value == null;
+        return value == null || value == 0;
     }
 
-    public boolean isEnabled() {
+    boolean isEnabled() {
         return isEnabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    void setEnabled(boolean enabled) {
         isEnabled = enabled;
     }
 

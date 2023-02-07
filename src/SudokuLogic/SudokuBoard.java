@@ -1,13 +1,16 @@
 package SudokuLogic;
 
+import Utilities.RandomGenerator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class SudokuBoard {
+    private boolean isLocked = false;
     private SudokuCell[][] boardCells = new SudokuCell[9][9];
-
 
     public SudokuBoard() {
         for (int i = 0; i < 9; i++) {
@@ -17,9 +20,60 @@ public class SudokuBoard {
         }
     }
 
+    public void setCellValue(int x, int y, Integer value) {
+        if(isLocked)
+            return;
+        boardCells[x][y].setValue(value);
+    }
 
-    public static SudokuBoard getNewBoard() {
-        return null;
+    public void setCellEnabled(int x, int y, boolean value) {
+        if(isLocked)
+            return;
+
+        boardCells[x][y].setEnabled(value);
+    }
+
+    public Integer getCellValue(int x, int y) {
+        return boardCells[x][y].value;
+    }
+
+    public boolean isCorrectlyFilled() {
+        // rows
+        for (int i = 0; i<9; i++) {
+
+            HashSet<Integer> rowNumbers = new HashSet<Integer>();
+            for (int j = 0; j<9; j++) {
+                var cell = boardCells[i][j];
+                if(cell.isEmpty() || cell.value < 1 || cell.value > 9)
+                    return false;
+                else
+                    rowNumbers.add(cell.value);
+            }
+
+            // brakuje min 1 cyfry z 1-9
+            if(rowNumbers.size() < 9)
+                return false;
+        }
+
+        // rows
+        for (int i = 0; i<9; i++) {
+
+            HashSet<Integer> colNumbers = new HashSet<Integer>();
+            for (int j = 0; j<9; j++) {
+                var cell = boardCells[j][i];
+                colNumbers.add(cell.value);
+            }
+
+            // brakuje min 1 cyfry z 1-9
+            if(colNumbers.size() < 9)
+                return false;
+        }
+
+        return true;
+    }
+
+    public void lockBoard() {
+        isLocked = true;
     }
 
     public String toString() {
@@ -34,75 +88,5 @@ public class SudokuBoard {
         }
 
         return result;
-    }
-
-    public void setCellValue(int x, int y, Integer value) {
-        boardCells[x][y].setValue(value);
-    }
-
-    public void setCellEnabled(int x, int y, boolean value) {
-        boardCells[x][y].setEnabled(value);
-    }
-
-    public boolean getCellEnabled(int x, int y) {
-        return boardCells[x][y].isEnabled();
-    }
-
-    public Integer getCellValue(int x, int y) {
-        return boardCells[x][y].value;
-    }
-
-    public List<Integer> getRowValues(int row) {
-        List<Integer> integers = new ArrayList<Integer>();
-        for (int i = 0; i < 9; i++) {
-            var val = getCellValue(row, i);
-            if(val > 0)
-                integers.add(val);
-        }
-
-        return integers;
-    }
-
-    public List<Integer> getColumnValues(int column) {
-        List<Integer> integers = new ArrayList<Integer>();
-        for (int i = 0; i < 9; i++) {
-            var val = getCellValue(i, column);
-            if(val > 0)
-                integers.add(val);
-        }
-
-        return integers;
-    }
-
-    public boolean CheckIfSafe(int i, int j, Integer valToCheck) {
-        return (unUsedInRow(i, valToCheck) &&
-                unUsedInCol(j, valToCheck) &&
-                unUsedInBox(i-i%3, j-j%3, valToCheck));
-    }
-
-    boolean unUsedInRow(int i,int num)
-    {
-        for (int j = 0; j<9; j++)
-            if (boardCells[i][j].value == num)
-                return false;
-        return true;
-    }
-
-    boolean unUsedInCol(int j,int num)
-    {
-        for (int i = 0; i<9; i++)
-            if (boardCells[i][j].value == num)
-                return false;
-        return true;
-    }
-
-    boolean unUsedInBox(int rowStart, int colStart, int num)
-    {
-        for (int i = 0; i<3; i++)
-            for (int j = 0; j<3; j++)
-                if (boardCells[rowStart+i][colStart+j].value==num)
-                    return false;
-
-        return true;
     }
 }

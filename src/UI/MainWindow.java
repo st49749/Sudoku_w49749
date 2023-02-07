@@ -2,6 +2,7 @@ package UI;
 
 import SudokuLogic.Difficulty.DemoDifficulty;
 import SudokuLogic.SudokuBoard;
+import SudokuLogic.SudokuCell;
 import SudokuLogic.SudokuGame;
 
 import javax.swing.*;
@@ -9,6 +10,8 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class MainWindow extends JFrame {
 
@@ -35,7 +38,6 @@ public class MainWindow extends JFrame {
         this.setVisible(true);
         newGameButton.addActionListener(newButtonActionListener);
 
-
         startGame();
     }
 
@@ -44,6 +46,15 @@ public class MainWindow extends JFrame {
         game.startNewGame();
 
         fillGridWithValues(game.getBoard());
+    }
+
+    private void validateWinCondition() {
+        var playerWon = game.validateWinCondition();
+        System.out.println(playerWon);
+        if(playerWon) {
+            lockAllGridFields();
+            JOptionPane.showMessageDialog(null,"Gratulacje!");
+        }
     }
 
     private void fillGridWithValues(SudokuBoard table) {
@@ -62,6 +73,14 @@ public class MainWindow extends JFrame {
                     internalFieldMatrix[i][j].setEnabled(true);
                     internalFieldMatrix[i][j].setBackground(Color.WHITE);
                 }
+            }
+        }
+    }
+
+    private void lockAllGridFields() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                internalFieldMatrix[i][j].setEnabled(false);
             }
         }
     }
@@ -101,9 +120,12 @@ public class MainWindow extends JFrame {
                 field.setDisabledTextColor(Color.BLACK);
 
                 var font = new Font("Dialog", Font.BOLD, 16);
+                field.setName(i + "x" + j);
                 field.setFont(font);
                 field.setEnabled(false);
                 field.setBackground(Color.LIGHT_GRAY);
+
+                field.addKeyListener(sudokuCellKeyPressedListener);
 
                 internalFieldMatrix[i][j] = field;
                 grid.add(field);
@@ -118,4 +140,39 @@ public class MainWindow extends JFrame {
     ActionListener newButtonActionListener = e -> {
         startGame();
     };
+
+    KeyAdapter sudokuCellKeyPressedListener = new KeyAdapter() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            var charKey = (int)e.getKeyChar();
+            var source = (JTextField)e.getSource();
+            if(charKey >= 49 && charKey <= 57) {
+                source.setText("");
+                super.keyTyped(e);
+                KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+                setGameValue(source, Integer.valueOf("" + e.getKeyChar()));
+            }
+            else {
+                e.consume();
+                source.setText("");
+                setGameValue(source, 0);
+            }
+        }
+    };
+
+    private void setGameValue(JTextField source, Integer value) {
+        var text = source.getName();
+        if (text.equals(""))
+            return;
+
+        var parts = text.split("x");
+        var i = Integer.valueOf(parts[0]);
+        var j = Integer.valueOf(parts[1]);
+
+        var val = value == null ? 0 : value;
+
+        game.getBoard().setCellValue(i, j, val);
+        if(val > 0)
+            validateWinCondition();
+    }
 }

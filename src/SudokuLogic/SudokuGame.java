@@ -22,6 +22,10 @@ public class SudokuGame {
         new BoardGapGenerator().generateGaps(board, difficulty);
     }
 
-
-
+    public boolean validateWinCondition() {
+        var result = board.isCorrectlyFilled();
+        if(result)
+            board.lockBoard();
+        return result;
+    }
 }
