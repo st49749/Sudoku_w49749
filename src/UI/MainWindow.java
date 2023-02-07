@@ -34,8 +34,6 @@ public class MainWindow extends JFrame {
     }
 
     private void drawBordersOnGrid() {
-
-
         for (int i = 0; i < 9; i++) {
             var top = 1;
 
