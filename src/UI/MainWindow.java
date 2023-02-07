@@ -1,29 +1,69 @@
 package UI;
 
+import SudokuLogic.Difficulty.DemoDifficulty;
+import SudokuLogic.SudokuBoard;
+import SudokuLogic.SudokuGame;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame {
+
+    SudokuGame game = null;
     private JPanel mainPanel;
     private JPanel gridPanel;
-    private JButton button1;
-    private JButton button2;
+    private JButton leaderBoardButton;
     private JButton button3;
+    private JButton newGameButton;
+    private JTextField gracz1TextField;
 
     private JTextField internalFieldMatrix[][] = new JTextField[9][9];
 
     public MainWindow() {
         super("Sudoku w49749");
         this.setContentPane(this.mainPanel);
-        this.setPreferredSize(new Dimension(600,700));
+        this.setPreferredSize(new Dimension(500,550));
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         DrawSudokuGrid();
         this.pack();
         this.setLocationByPlatform(true);
         this.setVisible(true);
+        newGameButton.addActionListener(newButtonActionListener);
+
+
+        startGame();
+    }
+
+    private void startGame() {
+        game = new SudokuGame(new DemoDifficulty());
+        game.startNewGame();
+
+        fillGridWithValues(game.getBoard());
+    }
+
+    private void fillGridWithValues(SudokuBoard table) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                var val = table.getCellValue(i, j);
+
+                if(val != null && val > 0) {
+                    internalFieldMatrix[i][j].setText(val.toString());
+                    internalFieldMatrix[i][j].setEnabled(false);
+                    internalFieldMatrix[i][j].setBackground(Color.LIGHT_GRAY);
+
+                }
+                else {
+                    internalFieldMatrix[i][j].setText("");
+                    internalFieldMatrix[i][j].setEnabled(true);
+                    internalFieldMatrix[i][j].setBackground(Color.WHITE);
+                }
+            }
+        }
     }
 
     private void DrawSudokuGrid() {
@@ -56,12 +96,14 @@ public class MainWindow extends JFrame {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 final JTextField field = new JTextField(3);
-                // field.setText((i+ 1) + "x" + (j + 1));
                 field.setPreferredSize(new Dimension(45,45));
                 field.setHorizontalAlignment(JTextField.CENTER);
+                field.setDisabledTextColor(Color.BLACK);
 
                 var font = new Font("Dialog", Font.BOLD, 16);
                 field.setFont(font);
+                field.setEnabled(false);
+                field.setBackground(Color.LIGHT_GRAY);
 
                 internalFieldMatrix[i][j] = field;
                 grid.add(field);
@@ -72,4 +114,8 @@ public class MainWindow extends JFrame {
         centeredGrid.add(grid);
         return centeredGrid;
     }
+
+    ActionListener newButtonActionListener = e -> {
+        startGame();
+    };
 }

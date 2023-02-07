@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ffffa3-3e13-4c7d-9953-ab13fa95965a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Database/Initiator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/BoardGapGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/DemoDifficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/EasyDifficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/HardDifficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/Difficulty/IGameDifficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/RandomGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sudoku49749.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku49749.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/Initiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Initiator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -39,12 +50,27 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
     "last_opened_file_path": "C:/Users/Moryl/Wsiz/Sudoku49749/sqlite-jdbc-3.40.1.0.jar",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Tests" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SudokuLogic.Difficulty" />
+      <recent name="SudokuLogic" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -75,5 +101,40 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Utilities/RandomGenerator.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/SudokuLogic/BoardGenerator.java</url>
+          <line>17</line>
+          <properties class="SudokuLogic.BoardGenerator" method="fillDiagonal">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="board.toString()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -12,7 +12,7 @@ public class Initiator {
 
     public static void createNewDatabase(String fileName) throws IOException {
 
-        Files.createDirectories(Paths.get("C:/sqlite/db"));
+        Files.createDirectories(Paths.get("C:/sqlite/db.db"));
 
         String url = "jdbc:sqlite:C:/sqlite/db/" + fileName;
 

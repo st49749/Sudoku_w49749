@@ -1,4 +1,5 @@
 import Database.Initiator;
+import SudokuLogic.BoardGenerator;
 import UI.MainWindow;
 
 import java.io.IOException;
@@ -13,5 +14,7 @@ public class Main {
 
         MainWindow mainWind = new MainWindow();
         mainWind.setVisible(true);
+
+
     }
 }
