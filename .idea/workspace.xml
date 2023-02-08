@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ffffa3-3e13-4c7d-9953-ab13fa95965a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Database/BaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Database/LeaderboardManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Database/LeaderboardModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SudokuLogic/GameStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/BoardGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/SudokuBoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/Initiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Initiator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku49749.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku49749.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuLogic/SudokuBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -41,6 +37,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -61,11 +61,12 @@
       <recent name="Tests" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Files" />
       <recent name="SudokuLogic.Difficulty" />
       <recent name="SudokuLogic" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Tests in Sudoku49749">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Sudoku49749" />
@@ -73,6 +74,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SudokuBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sudoku49749" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SudokuBoardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests in Sudoku49749" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sudoku49749" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Tests in Sudoku49749" />
+        <item itemvalue="JUnit.SudokuBoardTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -101,23 +137,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/SudokuLogic/GameStatistics.java</url>
-          <line>23</line>
+          <line>24</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/SudokuLogic/GameStatistics.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/src/Files/LeaderboardExporter.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <url>file://$PROJECT_DIR$/src/Files/LeaderboardExporter.java</url>
           <line>20</line>
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

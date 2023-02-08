@@ -20,6 +20,17 @@ public class SudokuBoard {
         }
     }
 
+    public SudokuBoard(Integer[][] premadeValues) {
+        if(premadeValues.length != 9 || premadeValues[0].length != 9)
+            return;
+        
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                boardCells[i][j] = new SudokuCell(premadeValues[i][j]);
+            }
+        }
+    }
+
     public void setCellValue(int x, int y, Integer value) {
         if(isLocked)
             return;
