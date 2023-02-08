@@ -10,7 +10,7 @@ public class BoardGapGenerator {
         {
             int cellId = RandomGenerator.randomGenerator(81)-1;
             int i = (cellId/9);
-            int j = cellId%9;
+            int j = cellId%10;
             if (j != 0)
                 j = j - 1;
 

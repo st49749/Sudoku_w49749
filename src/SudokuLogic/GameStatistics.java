@@ -1,5 +1,6 @@
 package SudokuLogic;
 
+import Database.LeaderboardModel;
 import SudokuLogic.Difficulty.IGameDifficulty;
 
 import java.time.LocalDateTime;
@@ -26,11 +27,18 @@ public class GameStatistics {
         return ChronoUnit.SECONDS.between(start, end);
     }
 
-    public String getDate() {
+    public String getDateAsString() {
         if(start == null)
             return "";
 
         return start.toString();
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        if(start == null)
+            return null;
+
+        return start;
     }
 
     public String getPlayerName() {
@@ -50,5 +58,9 @@ public class GameStatistics {
 
     public void stopTimer() {
         end = LocalDateTime.now();
+    }
+
+    public LeaderboardModel getLeaderBoardModel() {
+        return new LeaderboardModel(getPlayerName(), getDifficultyName(), getTime(), getLocalDateTime());
     }
 }

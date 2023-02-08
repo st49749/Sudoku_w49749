@@ -1,8 +1,10 @@
 package UI;
 
 import SudokuLogic.Difficulty.DemoDifficulty;
+import SudokuLogic.Difficulty.EasyDifficulty;
+import SudokuLogic.Difficulty.HardDifficulty;
+import SudokuLogic.Difficulty.IGameDifficulty;
 import SudokuLogic.SudokuBoard;
-import SudokuLogic.SudokuCell;
 import SudokuLogic.SudokuGame;
 
 import javax.swing.*;
@@ -19,16 +21,18 @@ public class MainWindow extends JFrame {
     private JPanel mainPanel;
     private JPanel gridPanel;
     private JButton leaderBoardButton;
-    private JButton button3;
     private JButton newGameButton;
     private JTextField gracz1TextField;
+    private JRadioButton demoRadioButton;
+    private JRadioButton trudnyRadioButton;
+    private JRadioButton latwyRadioButton;
 
     private JTextField internalFieldMatrix[][] = new JTextField[9][9];
 
     public MainWindow() {
         super("Sudoku w49749");
         this.setContentPane(this.mainPanel);
-        this.setPreferredSize(new Dimension(500,550));
+        this.setPreferredSize(new Dimension(500,620));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -38,11 +42,35 @@ public class MainWindow extends JFrame {
         this.setVisible(true);
         newGameButton.addActionListener(newButtonActionListener);
 
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(demoRadioButton);
+        buttonGroup.add(latwyRadioButton);
+        buttonGroup.add(trudnyRadioButton);
+        demoRadioButton.setSelected(true);
+
         startGame();
+        leaderBoardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeaderboardsWindow mainWind = new LeaderboardsWindow();
+                mainWind.setVisible(true);
+            }
+        });
     }
 
     private void startGame() {
-        game = new SudokuGame(new DemoDifficulty());
+        IGameDifficulty diff = new DemoDifficulty();
+        if (demoRadioButton.isSelected()){
+            diff = new DemoDifficulty();
+        }
+        if (latwyRadioButton.isSelected()){
+            diff = new EasyDifficulty();
+        }
+        if (trudnyRadioButton.isSelected()){
+            diff = new HardDifficulty();
+        }
+
+        game = new SudokuGame(diff);
         game.startNewGame();
 
         fillGridWithValues(game.getBoard());

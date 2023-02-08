@@ -11,16 +11,22 @@ public class LeaderboardManager extends BaseManager {
     public void saveScoreToDb(GameStatistics statistics) {
         if(statistics == null)
              return;
+        saveScoreToDb(statistics.getLeaderBoardModel());
+    }
+
+    public void saveScoreToDb(LeaderboardModel model) {
+        if(model == null)
+            return;
 
         String sql = "INSERT INTO leaderboards(playerName,difficultyName, date, timeTaken) VALUES(?,?,?,?)";
 
         try (Connection conn = this.connect();
-            PreparedStatement pstmt = conn.prepareStatement(sql))
+             PreparedStatement pstmt = conn.prepareStatement(sql))
         {
-            pstmt.setString(1, statistics.getPlayerName());
-            pstmt.setString(2, statistics.getDifficultyName());
-            pstmt.setString(3, statistics.getDate());
-            pstmt.setInt(4, (int)statistics.getTime());
+            pstmt.setString(1, model.getPlayerName());
+            pstmt.setString(2, model.getDifficultyName());
+            pstmt.setString(3, model.getDate().toString());
+            pstmt.setInt(4, (int)model.getTimeTaken());
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -53,5 +59,45 @@ public class LeaderboardManager extends BaseManager {
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    public List<LeaderboardModel> getTopNEntries(int n){
+        List<LeaderboardModel> result = new ArrayList<LeaderboardModel>();
+        String sql = "SELECT playerName,difficultyName, date, timeTaken FROM leaderboards ORDER BY timeTaken ASC LIMIT " + n;
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            while (rs.next()) {
+                var dateString = rs.getString("date");
+                var date = LocalDateTime.parse(dateString);
+
+                var newObject = new LeaderboardModel(
+                        rs.getString("playerName"),
+                        rs.getString("difficultyName"),
+                        (long)rs.getInt("timeTaken"),
+                        date
+                );
+
+                result.add(newObject);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+    public void clearDatabaseEntries(){
+        String sql = "DELETE FROM leaderboards";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql))
+        {
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

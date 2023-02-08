@@ -17,7 +17,7 @@ public class Main {
         mainWind.setVisible(true);
 
         LeaderboardManager man = new LeaderboardManager();
-        var x = man.getAllEntries();
+        var x = man.getTopNEntries(5);
         int i = 2+2;
     }
 }
